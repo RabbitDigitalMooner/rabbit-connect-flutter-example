@@ -127,8 +127,7 @@ class _MyAppState extends State<MyApp> {
         });
       }
     } on Exception catch (e, s) {
-      debugPrint(
-          'login error XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX : $e - stack: $s');
+      debugPrint('login error : $e - stack: $s');
 
       setState(() {
         isBusy = false;
