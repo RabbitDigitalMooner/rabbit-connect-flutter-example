@@ -49,7 +49,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         manifestPlaceholders += [
-                'appAuthRedirectScheme': 'com.mooner.app'
+                'appAuthRedirectScheme': '<YOUR_REDIRECT_URI_SCHEME>'
         ]
     }
 

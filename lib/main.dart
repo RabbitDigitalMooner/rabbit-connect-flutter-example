@@ -10,10 +10,10 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 final FlutterAppAuth appAuth = FlutterAppAuth();
 const FlutterSecureStorage secureStorage = FlutterSecureStorage();
 
-const String RABBIT_OAUTH_DOMAIN = 'uat-api-sso.rabbit.co.th';
-const String RABBIT_OAUTH_CLIENT_ID = 'mooner-flutter-app';
-const String RABBIT_OAUTH_REDIRECT_URI = 'com.mooner.app://oauth2redirect';
-const String RABBIT_OAUTH_ISSUER = 'https://$RABBIT_OAUTH_DOMAIN';
+const String RABBIT_OAUTH_DOMAIN = 'RABBIT_OAUTH_DOMAIN';
+const String RABBIT_OAUTH_CLIENT_ID = 'CLIENT_ID';
+const String RABBIT_OAUTH_REDIRECT_URI = 'REDIRECT_URI';
+const String RABBIT_OAUTH_ISSUER = 'OAUTH_ISSUER';
 
 final List<String> _scopes = <String>[
   'offline',
@@ -26,8 +26,8 @@ final List<String> _scopes = <String>[
 
 final AuthorizationServiceConfiguration _serviceConfiguration =
     const AuthorizationServiceConfiguration(
-        '$RABBIT_OAUTH_ISSUER/sso-oauth/oauth2/auth',
-        '$RABBIT_OAUTH_ISSUER/sso-oauth/oauth2/token');
+        'AUHORIZATION_ENDPOINT',
+        'GET_TOKEN_ENDPOINT',');
 
 void main() => runApp(MyApp());
 
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar:
-            AppBar(title: Text('Mooner'), backgroundColor: HexColor("#ff821d")),
+            AppBar(title: Text('Rabbit COnnect Example'), backgroundColor: HexColor("#ff821d")),
         body: Center(
           child: isBusy
               ? const CircularProgressIndicator()
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<Map<String, dynamic>> getUserDetails(String accessToken) async {
-    const String url = 'https://$RABBIT_OAUTH_DOMAIN/sso-oauth/userinfo';
+    const String url = 'USERINFO_ENDPOINT';
     final http.Response response = await http.get(
       Uri.parse(url),
       headers: <String, String>{'Authorization': 'Bearer $accessToken'},
