@@ -26,8 +26,7 @@ final List<String> _scopes = <String>[
 
 final AuthorizationServiceConfiguration _serviceConfiguration =
     const AuthorizationServiceConfiguration(
-        'AUHORIZATION_ENDPOINT',
-        'GET_TOKEN_ENDPOINT',');
+        'AUHORIZATION_ENDPOINT', 'GET_TOKEN_ENDPOINT');
 
 void main() => runApp(MyApp());
 
@@ -52,8 +51,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar:
-            AppBar(title: Text('Rabbit COnnect Example'), backgroundColor: HexColor("#ff821d")),
+        appBar: AppBar(
+            title: Text('Rabbit COnnect Example'),
+            backgroundColor: HexColor("#ff821d")),
         body: Center(
           child: isBusy
               ? const CircularProgressIndicator()
